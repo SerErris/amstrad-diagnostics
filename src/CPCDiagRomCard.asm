@@ -1,6 +1,6 @@
-MODULE CPCDiagRomBoard
+MODULE CPCDiagRomCard
 
-@CPCDiagRomBoardDisableLowerROM:
+@CPCDiagRomCardDisableLowerROM:
   ; Disable CPCDiagRomBoard lower ROM so system lower ROM is accessible
   ; CPCDiagRomBoard interprets bit7 of the dataword for the Upper ROM select byte.
   ; 0=enabled (default) 1=disabled. Any normal rom select operation will enable rom0 again.
@@ -12,7 +12,7 @@ MODULE CPCDiagRomBoard
   OUT (C),A                ;output C to &DFxx
   ret
 
-@CPCDiagRomBoardEnableLowerROM:
+@CPCDiagRomCardEnableLowerROM:
   ;Enables Lower AND Upper ROM0 from the Board.
   LD C,(UpperRomConfig)  ;load Romnumber of DIAG Rom
   LD B,&DF               ;output Romselect - bit7 low.
@@ -20,7 +20,4 @@ MODULE CPCDiagRomBoard
   OUT (C),C              ;output C to &DFxx
   ret
 
-;; Variable, but this resides in RAM, so that's OK
-ScratchByte: db 0
-
- ENDMODULE
+ENDMODULE
