@@ -166,6 +166,7 @@ RAMBegin:
  IFDEF TRY_UNPAGING_LOW_ROM
  	INCLUDE "Dandanator.asm"
  	INCLUDE "M4.asm"
+	INCLUDE "CPCDiagRomCard.asm"
  ENDIF
  	INCLUDE "VariablesInitialized.asm"
 RAMDataEnd:
