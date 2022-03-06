@@ -8,6 +8,7 @@
 @CanAccessLowROM:
 	call M4DisableLowerROM
 	call DandanatorDisableLowerROM
+	call CPCDiagRomCardDisableLowerROM
 	; Now check if the low RAM is still there
 	; Check if we see the mark DIAG, if not, skip low ROM test
 	ld ix,TxtTitle
@@ -26,7 +27,8 @@
 .exit:
 	push af
 	call M4EnableLowerROM
-	call DandanatorEnableLowerROM	
+	call DandanatorEnableLowerROM
+	call CPCDiagRomCardEnableLowerROM
 	pop af
 	ret
  ENDIF
@@ -38,6 +40,7 @@
  IFDEF TRY_UNPAGING_LOW_ROM
 	call M4DisableLowerROM
 	call DandanatorDisableLowerROM
+	call CPCDiagRomCardDisableLowerROM
  ENDIF
 	ld bc,#7F89                        ; GA select lower rom, and mode 1
 	out (c),c
@@ -51,7 +54,8 @@
  IFDEF TRY_UNPAGING_LOW_ROM
 	push hl
 	call M4EnableLowerROM
-	call DandanatorEnableLowerROM	
+	call DandanatorEnableLowerROM
+	call CPCDiagRomCardEnableLowerROM
 	pop hl
  ENDIF
 	ret
@@ -63,6 +67,7 @@
  IFDEF TRY_UNPAGING_LOW_ROM
 	call 	M4DisableLowerROM
 	call 	DandanatorDisableLowerROM
+	call CPCDiagRomCardDisableLowerROM
  ENDIF
 	ld 	bc, #7F00 | %10001001                        ; GA select lower rom, and mode 1
 	out 	(c),c
@@ -74,7 +79,8 @@
  IFDEF TRY_UNPAGING_LOW_ROM
 	push hl
 	call M4EnableLowerROM
-	call DandanatorEnableLowerROM	
+	call DandanatorEnableLowerROM
+        call CPCDiagRomCardEnableLowerROM
 	pop hl
  ENDIF
 	ret
