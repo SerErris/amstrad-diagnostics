@@ -39,7 +39,7 @@ Extract tarball archive and go to extracted folder. Edit install path `PREFIX` i
 
 Then run as root or use sudo:
 
-	make install
+	sudo make install
 
 ## Build the images
 1. Clone the repository
